@@ -5,7 +5,7 @@ const dotenv = require("dotenv");
 const connectDB = require("./config/db");
 
 //dotenv conig
-dotenv.config();
+dotenv.config('.env');
 
 //mongodb connection
 connectDB();
@@ -24,10 +24,11 @@ app.use("/api/v1/doctor", require("./routes/doctorRoutes"));
 
 //port
 const port = process.env.PORT || 8080;
+
 //listen port
 app.listen(port, () => {
   console.log(
-    `Server Running in ${process.env.NODE_MODE} Mode on port ${process.env.PORT}`
+    `Server Running in ${process.env.NODE_MODE} Mode on port ${port}`
       .bgCyan.white
   );
 });

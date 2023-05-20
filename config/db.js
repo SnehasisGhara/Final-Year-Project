@@ -1,7 +1,11 @@
 const mongoose = require("mongoose");
 const colors = require("colors");
+const dotenv = require("dotenv");
+
+dotenv.config('../.env');
 
 const connectDB = async () => {
+  console.log(process.env.MONGO_URL);
   try {
     await mongoose.connect(process.env.MONGO_URL);
     console.log(`Mongodb connected ${mongoose.connection.host}`.bgGreen.white);
